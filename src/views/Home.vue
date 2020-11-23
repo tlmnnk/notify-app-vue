@@ -6,9 +6,15 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: "Home"
 };
 </script>
+
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

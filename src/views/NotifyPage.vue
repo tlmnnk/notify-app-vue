@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Notify from "../components/Notify.vue";
 
 export default {
@@ -22,14 +23,21 @@ export default {
     Notify
   },
   data: () => ({
-    messages: [
-      { title: "message 1" },
-      { title: "message 2" },
-      { title: "message 3" },
-      { title: "message 4" },
-      { title: "message 5" }
-    ]
-  })
+    loading: false
+    //messages: []
+  }),
+  computed: {
+    messages() {
+      return this.loadedMessages();
+    }
+  },
+  mounted() {
+    this.fetchMessages();
+  },
+  methods: {
+    ...mapGetters("notify", ["loadedMessages"]),
+    ...mapActions("notify", ["fetchMessages"])
+  }
 };
 </script>
 
@@ -45,7 +53,6 @@ export default {
 }
 .notify__content {
   display: flex;
-  align-items: center;
   flex-direction: column;
   min-height: 300px;
 }

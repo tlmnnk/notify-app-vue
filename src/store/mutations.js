@@ -1,0 +1,5 @@
+export default {
+  SET_MESSAGE: "SET_MESSAGE",
+  LOAD_MORE: "LOAD_MORE",
+  DISABLE_BTN: "DISABLE_BTN"
+};
